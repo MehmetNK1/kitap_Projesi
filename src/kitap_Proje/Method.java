@@ -28,30 +28,30 @@ public class Method {
         switch(tercih) {
             case 1:
                 kitapEkle();
-                anaMenu();
+
                 break;
             case 2:
                 numaraIleKitap();
-                anaMenu();
+
                 break;
             case 3:
                 bilgiIleKitap();
-                anaMenu();
+
                 break;
             case 4:
                 numaraIleSil();
-                anaMenu();
+
                 break;
             case 5:
                 kitapListele();
-                anaMenu();
+
                 break;
             case 6:
                 cikis();
                 break;
             default:
                 System.out.println("hatali giris");
-                anaMenu();
+
         }
 
     }
@@ -213,8 +213,8 @@ public class Method {
             }
         }
     }
-    private static void numaraIleSil() {//
-        /*
+    private static void numaraIleSil() {
+/*
         boolean islem=true;
         Scanner scan = new Scanner(System.in);
 
@@ -245,7 +245,10 @@ public class Method {
         }
 }
 
-         */
+ */
+
+
+
 
         System.out.print("silinecek no gir.. : ");
         int silinecek = scan.nextInt();
@@ -262,7 +265,7 @@ public class Method {
                 }
             }
         }
-    }
+   }
 
 
     private static void kitapListele()   {//
