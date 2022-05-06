@@ -1,15 +1,13 @@
 package hastane;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class _Doktor {
 
     static Map<String, String> doktorlar = new LinkedHashMap<>();
     static Set<Map.Entry<String, String>> setDoktorlar = doktorlar.entrySet();
+    static Scanner scan = new Scanner(System.in);
 
 
     public static void Doktor() {
@@ -33,11 +31,9 @@ public class _Doktor {
                 for (Map.Entry<String, String> each : setDoktorlar) {
                     String eachKey = each.getKey();
                     String eachValue = each.getValue();
-
                     String[] eachValurArr = eachValue.split(", ");
-
                     if (each.getKey().equals("Allergist")) {
-                        System.out.println("\n\t === DOKTORLAR ===\n" +
+                        System.out.println("\n\t === ILGILI DOKTOR ===\n" +
                                 "UNVAN              ISIM      SOYISIM");
                         System.out.printf("%-14s    %-7s    %-8s", eachKey, eachValurArr[0], eachValurArr[1]);
                     }
@@ -49,9 +45,7 @@ public class _Doktor {
                 for (Map.Entry<String, String> each : setDoktorlar) {
                     String eachKey = each.getKey();
                     String eachValue = each.getValue();
-
                     String[] eachValurArr = eachValue.split(", ");
-
                     if (hastalikBul.equalsIgnoreCase("Bas agrisi") && each.getKey().equals("Norolog")) {
                         System.out.println("\n\t === DOKTORLAR ===\n" +
                                 "UNVAN              ISIM      SOYISIM");
@@ -113,9 +107,37 @@ public class _Doktor {
             default:
                 System.out.println("Girdiginiz hastaliga sahip bir hasta bulunamadi");
                 doktorBul(hastalikBul);
-
-
         }
     }
 
+    public static void doktorListele() {
+        Set<Map.Entry<String, String>> setDoktorlar = doktorlar.entrySet();
+        System.out.println("\t === DOKTORLAR ===\n" +
+                "UNVAN      \tISIM       SOYISIM");
+
+        for (Map.Entry<String, String> each : setDoktorlar) {
+            String eachKey = each.getKey();
+            String eachValue = each.getValue();
+            String[] eachValueArr = eachValue.split(", ");
+            System.out.printf("%-14s    %-7s    %-8s\n", eachKey, eachValueArr[0], eachValueArr[1]);
+        }
+    }
+
+    public static void unvanIleDoktorBul() {
+        System.out.print("Bulmak istediginiz doktarin unvani : ");
+        String arananUnvan = scan.nextLine();
+        Set<Map.Entry<String, String>> setDoktorlar = doktorlar.entrySet();
+        System.out.println("\t === DOKTORLAR ===\n" +
+                "UNVAN      \tISIM       SOYISIM");
+
+        for (Map.Entry<String, String> each:setDoktorlar) {
+            String eachKey = each.getKey();
+            String eachValue = each.getValue();
+            String [] eachValueArr = eachValue.split(", ");
+            if (arananUnvan.equalsIgnoreCase(each.getKey())){
+                System.out.printf("%-14s %-7s    %-8s\n", eachKey, eachValueArr[0], eachValueArr[1]);
+            }
+        }//for
+
+    }
 }
